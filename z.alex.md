@@ -1,7 +1,7 @@
 make each business editable
 backend done, just frontend
 
-fronted make individual business page and have a form tro make it editable
+fronted make individual business page and have a form to make it editable
 
 have home page on front end only display if isPublished=true
 

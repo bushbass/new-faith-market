@@ -1,43 +1,45 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useAuthContext } from './hooks/useAuthContext';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { useAuthContext } from './hooks/useAuthContext'
 
 // pages & components
-import Home from './pages/Home';
-import UserHome from './pages/UserHome';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Navbar from './components/Navbar';
+import Home from './pages/Home'
+import UserHome from './pages/UserHome'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+import Navbar from './components/Navbar'
+import EditBusiness from './pages/EditBusiness'
 
 function App() {
-  const { user } = useAuthContext();
+  const { user } = useAuthContext()
 
   return (
-    <div className="App">
+    <div className='App'>
       <BrowserRouter>
         <Navbar />
-        <div className="pages">
+        <div className='pages'>
           <Routes>
             <Route
-              path="/"
-              element={user ? <Home /> : <Navigate to="/login" />}
+              path='/'
+              element={user ? <Home /> : <Navigate to='/login' />}
+            />
+            <Route path='/edit/:id' element={<EditBusiness />} />
+            <Route
+              path='/user'
+              element={user ? <UserHome /> : <Navigate to='/login' />}
             />
             <Route
-              path="/user"
-              element={user ? <UserHome /> : <Navigate to="/login" />}
+              path='/login'
+              element={!user ? <Login /> : <Navigate to='/' />}
             />
             <Route
-              path="/login"
-              element={!user ? <Login /> : <Navigate to="/" />}
-            />
-            <Route
-              path="/signup"
-              element={!user ? <Signup /> : <Navigate to="/" />}
+              path='/signup'
+              element={!user ? <Signup /> : <Navigate to='/' />}
             />
           </Routes>
         </div>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

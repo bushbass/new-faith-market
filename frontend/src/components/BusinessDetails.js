@@ -1,5 +1,6 @@
 import { useBusinessesContext } from '../hooks/useBusinessesContext'
 import { useAuthContext } from '../hooks/useAuthContext'
+import { Link } from 'react-router-dom'
 
 // date fns
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
@@ -28,7 +29,9 @@ const BusinessDetails = ({ business }) => {
 
   return (
     <div className='business-details'>
-      <h4>{business.title}</h4>
+      <h4>
+        <Link to={`/edit/${business._id}`}>{business.title}</Link>
+      </h4>
       <p>
         <strong>Owner: </strong>
         {business.owner}
