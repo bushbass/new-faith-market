@@ -37,6 +37,7 @@ function App() {
             />
           </Routes>
         </div>
+        <footer>Copyright 2024 Faith Center and Alex Nielsen</footer>
       </BrowserRouter>
     </div>
   )

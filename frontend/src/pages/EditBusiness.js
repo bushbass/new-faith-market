@@ -103,7 +103,7 @@ function EditBusiness() {
           className={emptyFields.includes('isPublished') ? 'error' : ''}
         />
 
-        <button>Add Business</button>
+        <button>Update Business</button>
         {error && <div className='error'>{error}</div>}
       </form>
     </div>
