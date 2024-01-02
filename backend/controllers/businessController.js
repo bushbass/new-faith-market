@@ -1,7 +1,7 @@
 const Business = require('../models/businessModel');
 const mongoose = require('mongoose');
 
-// get all businesses
+// get all of one users businesses
 const getBusinesses = async (req, res) => {
   try {
     const user_id = req.user._id;

@@ -14,7 +14,7 @@ const router = express.Router();
 // require auth for all business routes
 router.use(requireAuth);
 
-// GET all businesses
+// GET all of one users businesses
 router.get('/', getBusinesses);
 
 //GET a single business

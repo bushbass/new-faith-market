@@ -9,7 +9,7 @@ const businessSchema = new Schema(
       required: true,
     },
     shortDescription: {
-      type: Number,
+      type: String,
       required: true,
     },
     owner: {

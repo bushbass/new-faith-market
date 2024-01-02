@@ -35,7 +35,7 @@ const Home = () => {
             <BusinessDetails key={business._id} business={business} />
           ))}
       </div>
-      {/* <BusinessForm /> */}
+      <BusinessForm />
     </div>
   );
 };
