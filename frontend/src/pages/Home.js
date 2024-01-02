@@ -1,43 +1,41 @@
-import { useEffect } from 'react';
-import { useBusinessesContext } from '../hooks/useBusinessesContext';
-import { useAuthContext } from '../hooks/useAuthContext';
+import { useEffect } from 'react'
+import { useBusinessesContext } from '../hooks/useBusinessesContext'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 // components
-import BusinessDetails from '../components/BusinessDetails';
-import BusinessForm from '../components/BusinessForm';
+import BusinessDetails from '../components/BusinessDetails'
 
 const Home = () => {
-  const { businesses, dispatch } = useBusinessesContext();
-  const { user } = useAuthContext();
+  const { businesses, dispatch } = useBusinessesContext()
+  const { user } = useAuthContext()
 
   useEffect(() => {
     const fetchBusinesses = async () => {
-      const response = await fetch('/api/businesses', {
+      const response = await fetch('/api/businesses/published', {
         headers: { Authorization: `Bearer ${user.token}` },
-      });
-      const json = await response.json();
+      })
+      const json = await response.json()
 
       if (response.ok) {
-        dispatch({ type: 'SET_WORKOUTS', payload: json });
+        dispatch({ type: 'SET_WORKOUTS', payload: json })
       }
-    };
+    }
 
     if (user) {
-      fetchBusinesses();
+      fetchBusinesses()
     }
-  }, [dispatch, user]);
+  }, [dispatch, user])
 
   return (
-    <div className="home">
-      <div className="businesses">
+    <div className='home'>
+      <div className='businesses'>
         {businesses &&
           businesses.map((business) => (
             <BusinessDetails key={business._id} business={business} />
           ))}
       </div>
-      {/* <BusinessForm /> */}
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

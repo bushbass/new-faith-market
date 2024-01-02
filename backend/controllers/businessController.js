@@ -110,7 +110,8 @@ const updateBusiness = async (req, res) => {
     { _id: id },
     {
       ...req.body,
-    }
+    },
+    { new: true }
   )
 
   if (!business) {
