@@ -1,9 +1,9 @@
 // import { useBusinessesContext } from '../hooks/useBusinessesContext'
 // import { useAuthContext } from '../hooks/useAuthContext'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 // date fns
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 const BusinessDetails = ({ business }) => {
   // const { dispatch } = useBusinessesContext()
@@ -28,10 +28,13 @@ const BusinessDetails = ({ business }) => {
   // }
 
   return (
-    <div className='business-details'>
+    <div className="business-details">
+      {console.log('business from businessDetails', business)}
       <h4>
-        <Link to={`/edit/${business._id}`}>{business.title}</Link>
-      </h4>{console.log('business from businessDetails', business)}
+        <Link to={`/single/${business._id}`} state={{ business }}>
+          {business.title}
+        </Link>
+      </h4>
       <p>
         <strong>Owner: </strong>
         {business.owner}
@@ -59,7 +62,7 @@ const BusinessDetails = ({ business }) => {
         delete
       </span> */}
     </div>
-  )
-}
+  );
+};
 
-export default BusinessDetails
+export default BusinessDetails;
