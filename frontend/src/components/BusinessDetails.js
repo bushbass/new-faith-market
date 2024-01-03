@@ -31,7 +31,7 @@ const BusinessDetails = ({ business }) => {
     <div className='business-details'>
       <h4>
         <Link to={`/edit/${business._id}`}>{business.title}</Link>
-      </h4>
+      </h4>{console.log('business from businessDetails', business)}
       <p>
         <strong>Owner: </strong>
         {business.owner}

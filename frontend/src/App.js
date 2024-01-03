@@ -24,7 +24,7 @@ function App() {
               element={user ? <Home /> : <Navigate to='/login' />}
             />
             <Route path='/edit/:id' element={<EditBusiness />} />
-            <Route path='/single/:id' element={<SingleBusiness />} />
+            <Route path='/single' element={<SingleBusiness />} />
             <Route
               path='/user'
               element={user ? <UserHome /> : <Navigate to='/login' />}
