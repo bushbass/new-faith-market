@@ -30,6 +30,7 @@ const Home = () => {
   return (
     <div className='home'>
       <div className='businesses'>
+        <h2>Current user's businesses</h2>
         {businesses &&
           businesses.map((business) => (
             <EditBusinessDetails key={business._id} business={business} />

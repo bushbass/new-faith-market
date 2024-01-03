@@ -31,7 +31,7 @@ function EditBusiness() {
     if (user) {
       fetchBusiness()
     }
-  }, [user])
+  }, [user,id])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
