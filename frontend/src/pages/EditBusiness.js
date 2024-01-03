@@ -66,7 +66,6 @@ function EditBusiness() {
 
   return (
     <div>
-      {console.log('business from editBusiness', business)}
       <h3>Edit Business</h3>
       <h4>Business : {business._id}</h4>
       <h4>user : {business.user_id}</h4>

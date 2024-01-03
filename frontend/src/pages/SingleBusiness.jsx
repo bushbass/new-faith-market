@@ -13,8 +13,6 @@ function SingleBusiness() {
 
   return (
     <div className="business-details">
-      {console.log(business.user_id, user.id)}
-
       {business.user_id === user.id ? (
         <h4>
           <Link to={`/edit/${business._id}`}>{business.title}</Link>
@@ -27,7 +25,6 @@ function SingleBusiness() {
         this is the same as on the listing page but listing page will have short
         info and this page will have full info.
       </h3>
-      <h3>need to make it so this page only link to edit if users match</h3>
       <p>
         <strong>Owner: </strong>
         {business.owner}

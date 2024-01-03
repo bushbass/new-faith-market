@@ -29,7 +29,6 @@ const BusinessDetails = ({ business }) => {
 
   return (
     <div className="business-details">
-      {console.log('business from businessDetails', business)}
       <h4>
         <Link to={`/single/${business._id}`} state={{ business }}>
           {business.title}
