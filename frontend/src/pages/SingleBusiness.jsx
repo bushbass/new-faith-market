@@ -1,23 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { useBusinessesContext } from '../hooks/useBusinessesContext';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
-import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function SingleBusiness() {
   const {
     state: { business },
   } = useLocation();
 
-  const { businesses, dispatch } = useBusinessesContext();
-  const { id } = useParams();
+  const { user } = useAuthContext();
 
   return (
     <div className="business-details">
-      <h4>
-        <Link to={`/edit/${business._id}`}>{business.title}</Link>
-      </h4>
+      {console.log(business.user_id, user.id)}
+
+      {business.user_id === user.id ? (
+        <h4>
+          <Link to={`/edit/${business._id}`}>{business.title}</Link>
+        </h4>
+      ) : (
+        <h4>{business.title}</h4>
+      )}
+
       <h3>
         this is the same as on the listing page but listing page will have short
         info and this page will have full info.
