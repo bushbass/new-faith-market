@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
 import EditBusiness from './pages/EditBusiness'
+import SingleBusiness from './pages/SingleBusiness'
 
 function App() {
   const { user } = useAuthContext()
@@ -23,6 +24,7 @@ function App() {
               element={user ? <Home /> : <Navigate to='/login' />}
             />
             <Route path='/edit/:id' element={<EditBusiness />} />
+            <Route path='/single/:id' element={<SingleBusiness />} />
             <Route
               path='/user'
               element={user ? <UserHome /> : <Navigate to='/login' />}
