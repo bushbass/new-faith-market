@@ -1,8 +1,10 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useAuthContext } from '../hooks/useAuthContext';
+import { useBusinessesContext } from '../hooks/useBusinessesContext';
 
 function EditBusiness() {
+  const { dispatch } = useBusinessesContext();
   const { user } = useAuthContext();
   const navigate = useNavigate();
 
@@ -32,6 +34,24 @@ function EditBusiness() {
       fetchBusiness();
     }
   }, [user, id]);
+
+  const handleClick = async () => {
+    if (!user) {
+      return;
+    }
+
+    const response = await fetch('/api/businesses/' + business._id, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+    const json = await response.json();
+
+    if (response.ok) {
+      dispatch({ type: 'DELETE_WORKOUT', payload: json });
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -68,7 +88,14 @@ function EditBusiness() {
     <div>
       <h3>Edit Business</h3>
       <h4>Business : {business._id}</h4>
-      <h4>user : {business.user_id}</h4>
+      <h4>
+        user : {business.user_id} - {user.email}
+      </h4>
+      {/* delete button */}
+      <span className="material-symbols-outlined" onClick={handleClick}>
+        delete
+      </span>
+      {/* end delete button */}
       <form className="create" onSubmit={handleSubmit}>
         <label>Business Name:</label>
         <input
