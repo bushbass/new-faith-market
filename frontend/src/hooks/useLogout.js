@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from './useAuthContext';
 import { useBusinessesContext } from './useBusinessesContext';
 
@@ -13,6 +14,7 @@ export const useLogout = () => {
     dispatch({ type: 'LOGOUT' });
     dispatchBusinesses({ type: 'SET_WORKOUTS', payload: null });
   };
+  useNavigate('/login');
 
   return { logout };
 };

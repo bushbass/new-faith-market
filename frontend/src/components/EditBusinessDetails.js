@@ -1,32 +1,9 @@
-// import { useBusinessesContext } from '../hooks/useBusinessesContext'
-// import { useAuthContext } from '../hooks/useAuthContext'
 import { Link } from 'react-router-dom';
 
 // date fns
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 const EditBusinessDetails = ({ business }) => {
-  // const { dispatch } = useBusinessesContext()
-  // const { user } = useAuthContext()
-
-  // const handleClick = async () => {
-  //   if (!user) {
-  //     return
-  //   }
-
-  //   const response = await fetch('/api/businesses/' + business._id, {
-  //     method: 'DELETE',
-  //     headers: {
-  //       Authorization: `Bearer ${user.token}`,
-  //     },
-  //   })
-  //   const json = await response.json()
-
-  //   if (response.ok) {
-  //     dispatch({ type: 'DELETE_WORKOUT', payload: json })
-  //   }
-  // }
-
   return (
     <div className="business-details">
       <h4>
@@ -55,9 +32,6 @@ const EditBusinessDetails = ({ business }) => {
       <p>
         {formatDistanceToNow(new Date(business.createdAt), { addSuffix: true })}
       </p>
-      {/* <span className='material-symbols-outlined' onClick={handleClick}>
-        delete
-      </span> */}
     </div>
   );
 };
