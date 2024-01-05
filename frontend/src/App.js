@@ -38,8 +38,8 @@ function App() {
               element={!user ? <Signup /> : <Navigate to="/" />}
             />
           </Routes>
+          <footer>Copyright 2024 Faith Center and Alex Nielsen</footer>
         </div>
-        <footer>Copyright 2024 Faith Center and Alex Nielsen</footer>
       </BrowserRouter>
     </div>
   );
