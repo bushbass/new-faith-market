@@ -2,7 +2,7 @@ import React from 'react'
 // date fns
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
-function BusinessDetailsFields({ business }) {
+function HomeBusinessDetailsFields({ business }) {
   return (
     <>
       <p>
@@ -14,28 +14,12 @@ function BusinessDetailsFields({ business }) {
         {business.shortDescription}
       </p>
       <p>
-        <strong>Published: </strong>
-        {business.isPublished ? 'true' : 'false'}
-      </p>
-      <p>
         <strong>Campus: </strong>
         {business.campus}
       </p>
       <p>
-        <strong>Long Description: </strong>
-        {business.longDescription}
-      </p>
-      <p>
         <strong>Category: </strong>
         {business.category}
-      </p>
-      <p>
-        <strong>Business Id: </strong>
-        {business._id}
-      </p>
-      <p>
-        <strong>User ID: </strong>
-        {business.user_id}
       </p>
       <p>
         {formatDistanceToNow(new Date(business.createdAt), { addSuffix: true })}
@@ -44,4 +28,4 @@ function BusinessDetailsFields({ business }) {
   )
 }
 
-export default BusinessDetailsFields
+export default HomeBusinessDetailsFields

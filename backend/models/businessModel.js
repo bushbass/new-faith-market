@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
 const businessSchema = new Schema(
   {
@@ -11,8 +11,9 @@ const businessSchema = new Schema(
     user_id: { type: String, required: true },
     campus: { type: String, required: true },
     longDescription: { type: String, required: true },
+    category: { type: [String] },
   },
   { timestamps: true }
-);
+)
 
-module.exports = mongoose.model('Business', businessSchema);
+module.exports = mongoose.model('Business', businessSchema)
