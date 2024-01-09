@@ -46,7 +46,7 @@ const getBusiness = async (req, res) => {
 
 // create new business
 const createBusiness = async (req, res) => {
-  const { title, owner, shortDescription } = req.body;
+  const { title, owner, shortDescription, longDescription, campus } = req.body;
 
   let emptyFields = [];
 
@@ -58,6 +58,12 @@ const createBusiness = async (req, res) => {
   }
   if (!shortDescription) {
     emptyFields.push('shortDescription');
+  }
+  if (!longDescription) {
+    emptyFields.push('longDescription');
+  }
+  if (!campus) {
+    emptyFields.push('campus');
   }
   if (emptyFields.length > 0) {
     return res
@@ -72,6 +78,8 @@ const createBusiness = async (req, res) => {
       title,
       owner,
       shortDescription,
+      longDescription,
+      campus,
       user_id,
       isPublished: false,
     });

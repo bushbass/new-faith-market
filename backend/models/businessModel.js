@@ -12,6 +12,14 @@ const businessSchema = new Schema(
       type: String,
       required: true,
     },
+    longDescription: {
+      type: String,
+      required: true,
+    },
+    campus: {
+      type: String,
+      required: true,
+    },
     owner: {
       type: String,
       required: true,
