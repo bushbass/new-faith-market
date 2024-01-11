@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-
-import BusinessDetailsFields from './BusinessDetailsFields';
+import BusinessDetailsFields from './ShortBusinessDetailsFields';
 
 const EditBusinessDetails = ({ business }) => {
   return (

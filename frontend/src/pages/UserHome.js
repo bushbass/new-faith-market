@@ -3,10 +3,10 @@ import { useBusinessesContext } from '../hooks/useBusinessesContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 
 // components
-import EditBusinessDetails from '../components/EditBusinessDetails'
+import BusinessDetails from '../components/BusinessDetails'
 import BusinessForm from '../components/BusinessForm'
 
-const Home = () => {
+const UserHome = () => {
   const { businesses, dispatch } = useBusinessesContext()
   const { user } = useAuthContext()
 
@@ -33,7 +33,7 @@ const Home = () => {
         <h2>Current user's businesses</h2>
         {businesses &&
           businesses.map((business) => (
-            <EditBusinessDetails key={business._id} business={business} />
+            <BusinessDetails key={business._id} business={business} />
           ))}
       </div>
       <BusinessForm />
@@ -41,4 +41,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default UserHome

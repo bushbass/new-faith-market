@@ -1,5 +1,5 @@
 import { useAuthContext } from '../hooks/useAuthContext';
-
+import BusinessDetailsFields from '../components/BusinessDetailsFields';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 import { Link, useLocation } from 'react-router-dom';
@@ -25,29 +25,8 @@ function SingleBusiness() {
         this is the same as on the listing page but listing page will have short
         info and this page will have full info.
       </h3>
-      <p>
-        <strong>Owner: </strong>
-        {business.owner}
-      </p>
-      <p>
-        <strong>Short Description: </strong>
-        {business.shortDescription}
-      </p>
-      <p>
-        <strong>Published: </strong>
-        {business.isPublished ? 'true' : 'false'}
-      </p>
-      <p>
-        <strong>Business Id: </strong>
-        {business._id}
-      </p>
-      <p>
-        <strong>User ID: </strong>
-        {business.user_id}
-      </p>
-      <p>
-        {formatDistanceToNow(new Date(business.createdAt), { addSuffix: true })}
-      </p>
+      <BusinessDetailsFields business={business} />
+
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import BusinessDetailsFields from './BusinessDetailsFields';
+import ShortBusinessDetailsFields from './ShortBusinessDetailsFields';
 
 const BusinessDetails = ({ business }) => {
   return (
@@ -9,7 +9,7 @@ const BusinessDetails = ({ business }) => {
           {business.title}
         </Link>
       </h4>
-      <BusinessDetailsFields business={business} />
+      <ShortBusinessDetailsFields business={business} />
     </div>
   );
 };
