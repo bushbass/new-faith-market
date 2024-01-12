@@ -144,10 +144,12 @@ function EditBusiness() {
 
         <label>Published:</label>
         <input
-          type="text"
-          onChange={(e) => setIsPublished(e.target.value)}
-          value={isPublished}
+        type="checkbox" id="checkbox" checked={isPublished}
+          onChange={()=>setIsPublished(!isPublished)}
+        
           className={emptyFields.includes('isPublished') ? 'error' : ''}
+          label="isPublished"
+     
         />
 
         <button>Update Business</button>
