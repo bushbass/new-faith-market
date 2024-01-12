@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useAuthContext } from '../hooks/useAuthContext';
 import { useLocation } from 'react-router-dom';
 import ShortBusinessDetailsFields from './ShortBusinessDetailsFields';
 const BusinessDetails = ({ business }) => {
-  const { user } = useAuthContext();
 
   const location = useLocation();
   const { pathname } = location;

@@ -15,7 +15,7 @@ function EditBusiness() {
   const [shortDescription, setShortDescription] = useState('');
   const [longDescription, setLongDescription] = useState('');
   const [campus, setCampus] = useState('');
-  
+
   const [isPublished, setIsPublished] = useState(false);
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
@@ -97,7 +97,7 @@ function EditBusiness() {
         user : {business.user_id} - {user.email}
       </h4>
       {/* delete button */}
-      <span className="material-symbols-outlined" onClick={handleClick}>
+      <span className="material-symbols-outlined delete-button" onClick={handleClick}>
         delete
       </span>
       {/* end delete button */}
@@ -107,7 +107,7 @@ function EditBusiness() {
           type="text"
           onChange={(e) => setTitle(e.target.value)}
           value={title}
-          // className={emptyFields.includes('title') ? 'error' : ''}
+        // className={emptyFields.includes('title') ? 'error' : ''}
         />
 
         <label>Owner:</label>
@@ -142,15 +142,13 @@ function EditBusiness() {
           className={emptyFields.includes('campus') ? 'error' : ''}
         />
 
-        <label>Published:</label>
-        <input
-        type="checkbox" id="checkbox" checked={isPublished}
-          onChange={()=>setIsPublished(!isPublished)}
-        
+        <label className='isPublishedLabel'>Published: <input
+          type="checkbox" id="isPublishedCheckbox" checked={isPublished}
+          onChange={() => setIsPublished(!isPublished)}
           className={emptyFields.includes('isPublished') ? 'error' : ''}
           label="isPublished"
-     
-        />
+        /></label>
+
 
         <button>Update Business</button>
         {error && <div className="error">{error}</div>}

@@ -6,3 +6,4 @@ spinners on async - login, submit, etc
 
 update business should still require fields like create does
 
+make delete checkbox a two step process
