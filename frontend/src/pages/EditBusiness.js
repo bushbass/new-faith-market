@@ -13,6 +13,9 @@ function EditBusiness() {
   const [title, setTitle] = useState('');
   const [owner, setOwner] = useState('');
   const [shortDescription, setShortDescription] = useState('');
+  const [longDescription, setLongDescription] = useState('');
+  const [campus, setCampus] = useState('');
+  
   const [isPublished, setIsPublished] = useState(false);
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
@@ -27,6 +30,8 @@ function EditBusiness() {
       setTitle(json.title);
       setOwner(json.owner);
       setShortDescription(json.shortDescription);
+      setLongDescription(json.longDescription);
+      setCampus(json.campus);
       setIsPublished(json.isPublished);
     };
 
@@ -119,6 +124,22 @@ function EditBusiness() {
           onChange={(e) => setShortDescription(e.target.value)}
           value={shortDescription}
           className={emptyFields.includes('shortDescription') ? 'error' : ''}
+        />
+
+        <label>Long Description:</label>
+        <input
+          type="text"
+          onChange={(e) => setLongDescription(e.target.value)}
+          value={longDescription}
+          className={emptyFields.includes('longDescription') ? 'error' : ''}
+        />
+
+        <label>Campus:</label>
+        <input
+          type="text"
+          onChange={(e) => setCampus(e.target.value)}
+          value={campus}
+          className={emptyFields.includes('campus') ? 'error' : ''}
         />
 
         <label>Published:</label>

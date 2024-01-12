@@ -8,6 +8,10 @@ const businessSchema = new Schema(
       type: String,
       required: true,
     },
+    owner: {
+      type: String,
+      required: true,
+    },
     shortDescription: {
       type: String,
       required: true,
@@ -17,10 +21,6 @@ const businessSchema = new Schema(
       required: true,
     },
     campus: {
-      type: String,
-      required: true,
-    },
-    owner: {
       type: String,
       required: true,
     },

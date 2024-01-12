@@ -14,6 +14,14 @@ function BusinessDetailsFields({ business }) {
         {business.shortDescription}
       </p>
       <p>
+        <strong>Long Description: </strong>
+        {business.longDescription}
+      </p>
+      <p>
+        <strong>Campus: </strong>
+        {business.campus}
+      </p>
+      <p>
         <strong>Published: </strong>
         {business.isPublished ? 'true' : 'false'}
       </p>
