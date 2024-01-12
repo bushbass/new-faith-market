@@ -4,15 +4,15 @@ export const BusinessesContext = createContext();
 
 export const businessesReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_WORKOUTS':
+    case 'SET_BUSINESSES':
       return {
         businesses: action.payload,
       };
-    case 'CREATE_WORKOUT':
+    case 'CREATE_BUSINESS':
       return {
         businesses: [action.payload, ...state.businesses],
       };
-    case 'DELETE_WORKOUT':
+    case 'DELETE_BUSINESS':
       return {
         businesses: state.businesses.filter(
           (w) => w._id !== action.payload._id

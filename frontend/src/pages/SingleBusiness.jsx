@@ -1,7 +1,5 @@
 import { useAuthContext } from '../hooks/useAuthContext';
 import BusinessDetailsFields from '../components/BusinessDetailsFields';
-import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-
 import { Link, useLocation } from 'react-router-dom';
 
 function SingleBusiness() {

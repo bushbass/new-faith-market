@@ -12,7 +12,7 @@ export const useLogout = () => {
 
     // dispatch logout action
     dispatch({ type: 'LOGOUT' });
-    dispatchBusinesses({ type: 'SET_WORKOUTS', payload: null });
+    dispatchBusinesses({ type: 'SET_BUSINESSES', payload: null });
   };
   useNavigate('/login');
 

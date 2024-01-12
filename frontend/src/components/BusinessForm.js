@@ -42,7 +42,7 @@ const BusinessForm = () => {
       setShortDescription('');
       setError(null);
       setEmptyFields([]);
-      dispatch({ type: 'CREATE_WORKOUT', payload: json });
+      dispatch({ type: 'CREATE_BUSINESS', payload: json });
     }
   };
 
