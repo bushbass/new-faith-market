@@ -9,6 +9,8 @@ const BusinessForm = () => {
   const [title, setTitle] = useState('');
   const [owner, setOwner] = useState('');
   const [shortDescription, setShortDescription] = useState('');
+  const [longDescription, setLongDescription] = useState('');
+  const [campus, setCampus] = useState('');
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
 
@@ -20,7 +22,7 @@ const BusinessForm = () => {
       return;
     }
 
-    const business = { title, owner, shortDescription };
+    const business = { title, owner, shortDescription, longDescription, campus };
 
     const response = await fetch('/api/businesses', {
       method: 'POST',
@@ -40,6 +42,8 @@ const BusinessForm = () => {
       setTitle('');
       setOwner('');
       setShortDescription('');
+      setLongDescription('');
+      setCampus('');
       setError(null);
       setEmptyFields([]);
       dispatch({ type: 'CREATE_BUSINESS', payload: json });
@@ -72,6 +76,20 @@ const BusinessForm = () => {
         onChange={(e) => setShortDescription(e.target.value)}
         value={shortDescription}
         className={emptyFields.includes('shortDescription') ? 'error' : ''}
+      />
+      <label>Long Description:</label>
+      <input
+        type="text"
+        onChange={(e) => setLongDescription(e.target.value)}
+        value={longDescription}
+        className={emptyFields.includes('longDescription') ? 'error' : ''}
+      />
+      <label>Campus:</label>
+      <input
+        type="text"
+        onChange={(e) => setCampus(e.target.value)}
+        value={campus}
+        className={emptyFields.includes('campus') ? 'error' : ''}
       />
 
       <button>Add Business</button>
