@@ -66,7 +66,7 @@ function EditBusiness() {
       return;
     }
 
-    const business = { title, owner, shortDescription, isPublished };
+    const business = { title, owner, shortDescription, longDescription, campus, isPublished };
 
     const response = await fetch(`/api/businesses/${id}`, {
       method: 'PATCH',
