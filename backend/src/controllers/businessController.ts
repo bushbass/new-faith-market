@@ -1,10 +1,22 @@
+import { Response, Request } from "express"
+import { IBusiness } from "../types/business";
 const Business = require('../models/businessModel');
 const mongoose = require('mongoose');
 
+interface User {
+  _id: string;
+  email: string;
+}
+
+interface ExtendedRequest extends Request {
+  user: User;
+}
+
+
 // get all of one users businesses
-const getAllPublishedBusinesses = async (req, res) => {
+const getAllPublishedBusinesses = async (req: Request, res: Response) => {
   try {
-    const businesses = await Business.find({ isPublished: true }).sort({
+    const businesses: IBusiness[] = await Business.find({ isPublished: true }).sort({
       createdAt: -1,
     });
 
@@ -15,11 +27,11 @@ const getAllPublishedBusinesses = async (req, res) => {
 };
 
 // get all of one users businesses
-const getBusinesses = async (req, res) => {
+const getBusinesses = async (req: ExtendedRequest, res: Response) => {
   try {
     const user_id = req.user._id;
 
-    const businesses = await Business.find({ user_id }).sort({ createdAt: -1 });
+    const businesses: IBusiness[] = await Business.find({ user_id }).sort({ createdAt: -1 });
 
     res.status(200).json(businesses);
   } catch (error) {
@@ -28,14 +40,14 @@ const getBusinesses = async (req, res) => {
 };
 
 // get a single business
-const getBusiness = async (req, res) => {
+const getBusiness = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: 'No such business' });
   }
 
-  const business = await Business.findById(id);
+  const business: IBusiness = await Business.findById(id);
 
   if (!business) {
     return res.status(404).json({ error: 'No such business' });
@@ -45,7 +57,7 @@ const getBusiness = async (req, res) => {
 };
 
 // create new business
-const createBusiness = async (req, res) => {
+const createBusiness = async (req: ExtendedRequest, res: Response) => {
   const { title, owner, shortDescription, longDescription, campus } = req.body;
 
   let emptyFields = [];
@@ -74,7 +86,7 @@ const createBusiness = async (req, res) => {
   // add doc to db
   try {
     const user_id = req.user._id;
-    const business = await Business.create({
+    const business: IBusiness = await Business.create({
       title,
       owner,
       shortDescription,
@@ -90,7 +102,7 @@ const createBusiness = async (req, res) => {
 };
 
 // delete a business
-const deleteBusiness = async (req, res) => {
+const deleteBusiness = async (req: ExtendedRequest, res: Response) => {
   const { id } = req.params;
   const user_id = req.user._id;
 
@@ -98,7 +110,7 @@ const deleteBusiness = async (req, res) => {
     return res.status(404).json({ error: 'No such business' });
   }
 
-  const business = await Business.findOneAndDelete({ _id: id, user_id });
+  const business: IBusiness = await Business.findOneAndDelete({ _id: id, user_id });
 
   if (!business) {
     return res
@@ -110,7 +122,7 @@ const deleteBusiness = async (req, res) => {
 };
 
 // update a business
-const updateBusiness = async (req, res) => {
+const updateBusiness = async (req: ExtendedRequest, res: Response) => {
   const { id } = req.params;
   const user_id = req.user._id;
 
@@ -118,7 +130,7 @@ const updateBusiness = async (req, res) => {
     return res.status(404).json({ error: 'No such business or unauthorized' });
   }
 
-  const business = await Business.findOneAndUpdate(
+  const business: IBusiness = await Business.findOneAndUpdate(
     { _id: id, user_id },
     {
       ...req.body,

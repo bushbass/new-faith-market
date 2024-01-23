@@ -1,8 +1,9 @@
-const mongoose = require('mongoose')
+import { IBusiness } from '../types/business'
+import { model, Schema } from "mongoose"
 
-const Schema = mongoose.Schema
 
-const businessSchema = new Schema(
+
+const businessSchema: Schema = new Schema(
   {
     title: {
       type: String,
@@ -36,4 +37,4 @@ const businessSchema = new Schema(
   { timestamps: true }
 )
 
-module.exports = mongoose.model('Business', businessSchema)
+module.exports = model<IBusiness>('Business', businessSchema)
